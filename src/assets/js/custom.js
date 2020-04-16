@@ -15,7 +15,7 @@ function init_plugins(){
             $(".preloader").fadeOut();
         });
         jQuery(document).on('click', '.mega-dropdown', function (e) {
-            e.stopPropagation()
+            e.stopPropagation();
         });
         // ============================================================== 
         // This is for the top header part and sidebar part
@@ -105,14 +105,14 @@ function init_plugins(){
         //tooltip
         // ============================================================== 
         $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-        })
+            $('[data-toggle="tooltip"]').tooltip();
+        });
         // ============================================================== 
         //Popover
         // ============================================================== 
         $(function () {
-            $('[data-toggle="popover"]').popover()
-        })
+            $('[data-toggle="popover"]').popover();
+        });
         // ============================================================== 
         // Sidebarmenu
         // ============================================================== 
