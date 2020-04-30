@@ -1,11 +1,11 @@
 
-import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
-// import swal from 'sweetalert';
 import { UsuarioService } from '../services/service.index';
 import { Usuario } from '../models/usuario.model';
-import { Router } from '@angular/router';
+import swal from 'sweetalert';
 
 declare function init_plugins();
 
@@ -41,6 +41,7 @@ export class RegisterComponent implements OnInit {
 
 
   ngOnInit() {
+
     init_plugins();
 
     this.forma = new FormGroup({
@@ -69,7 +70,7 @@ export class RegisterComponent implements OnInit {
     }
 
     if ( !this.forma.value.condiciones ) {
-      // swal( 'Importante', 'Debe de aceptar las condiciones', 'warning' );
+      swal( 'Importante', 'Debe de aceptar las condiciones', 'warning' );
       return;
     }
 
