@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
+// Pipes Module
+import { PipesModule } from '../pipes/pipes.module';
+
 // Componentes
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -18,7 +21,8 @@ import { Page404Component } from './page404/page404.component';
   ],
   imports: [
     RouterModule,
-    CommonModule
+    CommonModule,
+    PipesModule
   ],
   exports: [
     HeaderComponent,
