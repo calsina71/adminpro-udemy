@@ -33,15 +33,14 @@
 
     <div class="col-lg-5">
         <div class="card">
-            <div class="card-body">
+            <div class="card-body text-center">
                 <h4 class="card-title">Fotografía del usuario</h4>
                 <h6 class="card-subtitle">nombre foto</h6>
 
                 <img *ngIf="!imagenTemp" [src]="usuario.img | imagen" alt="foto de {{ usuario.nombre }}" class="w150" >
                 <img *ngIf="imagenTemp" [src]="imagenTemp" alt="foto de {{ usuario.nombre }}" class="w150" >
 
-                <input (change)="seleccionImagen( $event.target.files[0] )" type="file">
-                <br><br>
+                <input (change)="seleccionImagen( $event.target.files[0] )" type="file" class="mt-3 mb-4">
                 <button (click)="cambiarImagen()" [disabled]="!imagenASubir" type="button" class="btn btn-block btn-success waves-effect waves-light">
                     <i class="fa fa-save"></i>
                     Actualizar foto

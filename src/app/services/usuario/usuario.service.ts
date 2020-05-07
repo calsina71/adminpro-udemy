@@ -107,7 +107,6 @@ export class UsuarioService {
   }
 
 
-
   crearUsuario(usuario: Usuario) {
 
     const url = URL_SERVICIOS + '/usuario';
@@ -121,7 +120,6 @@ export class UsuarioService {
   }
 
 
-
   actualizarUsuario(usuario: Usuario) {
 
     let url = URL_SERVICIOS + '/usuario/' + usuario._id;
@@ -133,9 +131,11 @@ export class UsuarioService {
 
         const usuarioDB: Usuario = resp.usuario;
 
-        // console.log('Este es el usuario actualizado: ', usuarioDB);
+        if ( usuario._id === this.usuario._id ) {
+          // console.log('Este es el usuario actualizado: ', usuarioDB);
+          this.guardarEnLocalStorage( usuarioDB._id, this.token, usuarioDB );
+        }
 
-        this.guardarEnLocalStorage( usuarioDB._id, this.token, usuarioDB );
         swal('Usuario actualizado', usuarioDB.nombre, 'success');
 
         return true;
@@ -143,7 +143,6 @@ export class UsuarioService {
       });
 
   }
-
 
 
   cambiarImagen(archivo: File, id: string) {
@@ -160,6 +159,39 @@ export class UsuarioService {
       .catch(resp => {
         console.log(resp);
       });
+
+  }
+
+
+  cargarUsuarios( desde: number = 0 ) {
+
+    const url = URL_SERVICIOS + '/usuario?desde=' + desde;
+
+    return this.http.get( url );
+  }
+
+
+  buscarUsuarios( termino: string ) {
+
+    const url = URL_SERVICIOS + '/busqueda/coleccion/usuarios/' + termino;
+
+    return this.http.get( url )
+      .map( (resp: any) => {
+        console.log (resp.usuarios);
+        return resp.usuarios;
+      });
+
+  }
+
+
+  borrarUsuario( id: string ) {
+
+    let url = URL_SERVICIOS + '/usuario/' + id;
+    url += '?token=' + this.token;
+
+    swal('Usuario eliminado', `El usuario con Id: ${id} \n ha sido eliminado`, 'success');
+    return this.http.delete( url )
+      .map( resp => true );
 
   }
 
