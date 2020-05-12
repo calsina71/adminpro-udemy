@@ -9,6 +9,8 @@ export class ImagenPipe implements PipeTransform {
   transform( img: string, coleccion: string = 'usuario' ): any {
 
     let url = URL_SERVICIOS + '/img';
+    // console.log('ARGUMENTOS DEL PIPE', coleccion);
+
 
     if ( !img ) {
       return url + '/usuarios/xxx';
@@ -37,6 +39,8 @@ export class ImagenPipe implements PipeTransform {
         return url += '/usuarios/xxx';
 
     }
+
+    // console.log( 'PIPE IMAGEN, URL de la imagen: ', url);
 
     return url;
 

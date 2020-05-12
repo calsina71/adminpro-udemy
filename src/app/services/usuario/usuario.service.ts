@@ -149,7 +149,7 @@ export class UsuarioService {
 
     this._subirArchivoService.subirArchivo(archivo, 'usuarios', id)
       .then((resp: any) => {
-        // console.log( resp );
+        // console.log( 'cambiarImagen - usuarios', resp );
         this.usuario.img = resp.usuario.img;
         swal('Imagen actualizada', this.usuario.nombre, 'success');
 
@@ -177,7 +177,7 @@ export class UsuarioService {
 
     return this.http.get( url )
       .map( (resp: any) => {
-        console.log (resp.usuarios);
+        // console.log ('buscarUsuarios', resp.usuarios);
         return resp.usuarios;
       });
 
