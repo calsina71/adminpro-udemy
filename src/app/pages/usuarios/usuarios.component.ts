@@ -95,7 +95,7 @@ export class UsuariosComponent implements OnInit {
 
   borrarUsuario( usuario: Usuario ) {
 
-    console.log( usuario );
+    // console.log( usuario );
 
     if ( usuario._id === this._usuarioService.usuario._id ) {
       swal('No se puede eliminar usuario', 'No se puede eliminar eliminar a si mismo', 'error');
@@ -111,7 +111,7 @@ export class UsuariosComponent implements OnInit {
     })
     .then( borrar => {
 
-      console.log( borrar );
+      // console.log( borrar );
 
       if ( borrar ) {
         this._usuarioService.borrarUsuario( usuario._id )

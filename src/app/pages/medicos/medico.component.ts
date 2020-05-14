@@ -62,7 +62,7 @@ export class MedicoComponent implements OnInit {
             // console.log(resp);
             this.medico = medico;
 
-            this.router.navigate( ['/medico', medico._id] );
+            this.router.navigate( ['/medicos'] );
 
           });
 
@@ -73,7 +73,7 @@ export class MedicoComponent implements OnInit {
 
     this._hospitalService.obtenerHospital( id )
           .subscribe( (hospital: Hospital) => {
-            console.log( hospital );
+            // console.log( hospital );
             this.hospital = hospital;
           });
 

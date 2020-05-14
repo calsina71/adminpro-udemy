@@ -68,7 +68,7 @@ export class LoginComponent implements OnInit {
             // .subscribe( resp => this.router.navigate([ '/dashboard' ]) );  <-- Da un bloblema de refresco de la pantalla
             .subscribe( () => window.location.href = '#/dashboard' );
 
-      console.log( token );
+      // console.log( token );
 
     });
 

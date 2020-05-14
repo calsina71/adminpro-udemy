@@ -85,7 +85,7 @@ export class HospitalService {
       return this.http.post(url, { nombre })
       .map((resp: any) => {
 
-          console.log( 'crearHospital', nombre );
+          // console.log( 'crearHospital', nombre );
           swal('Hospital creado', nombre, 'success');
           return resp.hospital;
         });
@@ -99,7 +99,7 @@ export class HospitalService {
 
     return this.http.get( url )
       .map( (resp: any) => {
-        console.log (resp.hospitales);
+        // console.log (resp.hospitales);
         return resp.hospitales;
       });
 
@@ -125,11 +125,9 @@ export class HospitalService {
 
 
   cambiarImagen(archivo: File, id: string) {
-    console.log( 'ENTRA EN CAMBIARIMAGEN');
 
     this._subirArchivoService.subirArchivo( archivo, 'hospitales', id )
       .then( (resp: any) => {
-        console.log( 'respuesta de subirArchivoService', resp );
         this.hospital.img = resp.hospital.img;
         swal('Imagen actualizada', this.hospital.nombre, 'success');
       })

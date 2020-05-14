@@ -11,6 +11,10 @@ a, button {
     width: 50px;
 }
 
+.img-100 {
+    width: 100px;
+}
+
 .oculto {
     display: none;
 }
@@ -27,4 +31,8 @@ a, button {
 
 .modal, .modal-backdrop {
     top: 100px;
+}
+
+.pointer {
+    cursor: pointer;
 }

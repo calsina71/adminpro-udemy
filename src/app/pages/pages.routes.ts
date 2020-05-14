@@ -1,4 +1,5 @@
 import { RouterModule, Routes } from '@angular/router';
+
 // Rutas generales
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -7,8 +8,13 @@ import { Graficas1Component } from './graficas1/graficas1.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
-import { LoginGuard } from '../services/guards/login.guard';
 import { ProfileComponent } from './profile/profile.component';
+import { BusquedaComponent } from './busqueda/busqueda.component';
+
+// Guards
+import { LoginGuard } from '../services/service.index';
+import { AdminGuard } from '../services/service.index';
+
 // Rutas de mantenimientos
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { HospitalesComponent } from './hospitales/hospitales.component';
@@ -50,9 +56,15 @@ const pagesRoutes: Routes = [
         path: 'perfil', component: ProfileComponent,
         data: { titulo: 'Perfil de usuario', descripcion: 'Esta es la página de perfil del usuario' }
       },
+      {
+        path: 'busqueda/:termino', component: BusquedaComponent,
+        data: { titulo: 'Buscador', descripcion: 'Esta es la página del buscador' }
+      },
       // Mantenimientos
       {
-        path: 'usuarios', component: UsuariosComponent,
+        path: 'usuarios',
+        component: UsuariosComponent,
+        canActivate: [ AdminGuard ],
         data: { titulo: 'Mantenimiento de usuarios', descripcion: 'Esta es la página de mantenimiento de usuarios' }
       },
       {

@@ -10,7 +10,8 @@ import { SettingsService,
   HospitalService,
   MedicoService,
   SubirArchivoService,
-  LoginGuard
+  LoginGuard,
+  AdminGuard
 } from './service.index';
 
 
@@ -29,7 +30,8 @@ import { SettingsService,
     MedicoService,
     SubirArchivoService,
     ModalUploadService,
-    LoginGuard
+    LoginGuard,
+    AdminGuard
   ]
 })
 export class ServiceModule { }

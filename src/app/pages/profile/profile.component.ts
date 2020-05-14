@@ -44,7 +44,7 @@ export class ProfileComponent implements OnInit {
 
   seleccionImagen( archivo: File ) {
 
-    console.log( archivo );
+    // console.log( archivo );
 
     if ( !archivo ) {
       this.imagenASubir = null;

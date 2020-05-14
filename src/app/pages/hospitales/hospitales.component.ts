@@ -99,7 +99,7 @@ export class HospitalesComponent implements OnInit {
 
   borrarHospital( hospital: Hospital ) {
 
-    console.log( hospital );
+    // console.log( hospital );
 
     swal({
       title: '¿Está seguro?',
@@ -110,7 +110,7 @@ export class HospitalesComponent implements OnInit {
     })
     .then( borrar => {
 
-      console.log( borrar );
+      // console.log( borrar );
 
       if ( borrar ) {
         this._hospitalService.borrarHospital( hospital._id )
