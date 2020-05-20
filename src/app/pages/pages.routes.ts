@@ -1,7 +1,7 @@
 import { RouterModule, Routes } from '@angular/router';
 
 // Rutas generales
-import { PagesComponent } from './pages.component';
+// import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
 import { Graficas1Component } from './graficas1/graficas1.component';
@@ -12,7 +12,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { BusquedaComponent } from './busqueda/busqueda.component';
 
 // Guards
-import { LoginGuard } from '../services/service.index';
+// import { LoginGuard } from '../services/service.index';
 import { AdminGuard } from '../services/service.index';
 
 // Rutas de mantenimientos
@@ -20,44 +20,55 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { HospitalesComponent } from './hospitales/hospitales.component';
 import { MedicosComponent } from './medicos/medicos.component';
 import { MedicoComponent } from './medicos/medico.component';
+import { VerificaTokenGuard } from '../services/guards/verifica-token.guard';
 
 
 const pagesRoutes: Routes = [
-  {
-    path: '',
-    component: PagesComponent,
-    canActivate: [LoginGuard],
-    children: [
+  // ---- Modificado, para cargar las rutas hijas por Lazyload.
+  // {
+    // path: '',
+    // component: PagesComponent,
+    // canActivate: [LoginGuard],
+    // children: [
       {
-        path: 'dashboard', component: DashboardComponent,
+        path: 'dashboard',
+        component: DashboardComponent,
+        canActivate: [ VerificaTokenGuard ],
         data: { titulo: 'Dashboard', descripcion: 'Esta es la página de Dashboard' }
       },
       {
-        path: 'progress', component: ProgressComponent,
+        path: 'progress',
+        component: ProgressComponent,
         data: { titulo: 'Progress', descripcion: 'Esta es la página de progress bars' }
       },
       {
-        path: 'graficas1', component: Graficas1Component,
+        path: 'graficas1',
+        component: Graficas1Component,
         data: { titulo: 'Gráficas', descripcion: 'Esta es la página de gráficas' }
       },
       {
-        path: 'promesas', component: PromesasComponent,
+        path: 'promesas',
+        component: PromesasComponent,
         data: { titulo: 'Promesas', descripcion: 'Esta es la página de ejemplo de promesas' }
       },
       {
-        path: 'rxjs', component: RxjsComponent,
+        path: 'rxjs',
+        component: RxjsComponent,
         data: { titulo: 'RxJs', descripcion: 'Esta es la página de Ejemplos de RxJs' }
       },
       {
-        path: 'acount-settings', component: AccountSettingsComponent,
+        path: 'acount-settings',
+        component: AccountSettingsComponent,
         data: { titulo: 'Ajustes del Tema', descripcion: 'Esta es la página de Ajustes del Tema' }
       },
       {
-        path: 'perfil', component: ProfileComponent,
+        path: 'perfil',
+        component: ProfileComponent,
         data: { titulo: 'Perfil de usuario', descripcion: 'Esta es la página de perfil del usuario' }
       },
       {
-        path: 'busqueda/:termino', component: BusquedaComponent,
+        path: 'busqueda/:termino',
+        component: BusquedaComponent,
         data: { titulo: 'Buscador', descripcion: 'Esta es la página del buscador' }
       },
       // Mantenimientos
@@ -82,8 +93,8 @@ const pagesRoutes: Routes = [
       {
         path: '', pathMatch: 'full', redirectTo: '/dashboard'
       }
-    ]
-  }
+  //   ]
+  // }
 
 ];
 

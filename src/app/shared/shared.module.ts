@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { Page404Component } from './page404/page404.component';
+import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { Page404Component } from './page404/page404.component';
     HeaderComponent,
     SidebarComponent,
     Page404Component,
-    BreadcrumbsComponent
+    BreadcrumbsComponent,
+    ModalUploadComponent
   ],
   imports: [
     RouterModule,
@@ -28,7 +30,8 @@ import { Page404Component } from './page404/page404.component';
     HeaderComponent,
     SidebarComponent,
     Page404Component,
-    BreadcrumbsComponent
+    BreadcrumbsComponent,
+    ModalUploadComponent
   ]
 })
 

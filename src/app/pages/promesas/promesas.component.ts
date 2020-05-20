@@ -14,7 +14,7 @@ export class PromesasComponent implements OnInit {
 
     promesa.then  ( mensaje => console.log('Finalizado:', mensaje) )
            .catch ( error => console.error('Se ha producido un error:', error) );
-    }
+  }
 
   ngOnInit(): void {
   }

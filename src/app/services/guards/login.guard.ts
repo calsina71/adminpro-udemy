@@ -20,6 +20,7 @@ export class LoginGuard implements CanActivate {
     } else {
 
       // console.log('Bloqueado por el Guard');
+      this._usuarioService.logout();
       return false;
 
     }
